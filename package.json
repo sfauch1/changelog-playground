@@ -1,0 +1,26 @@
+{
+  "name": "changelog-playground",
+  "version": "1.0.0",
+  "description": "proof of concept for generating CHANGELOG.md",
+  "main": "index.js",
+  "scripts": {
+    "pull:request": "git reset $(git merge-base main $(git rev-parse --abbrev-ref HEAD)) && git add . & cz",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "commitizen",
+    "conventional-commits",
+    "changelog"
+  ],
+  "author": "Stéphane Faucher",
+  "license": "MIT",
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
