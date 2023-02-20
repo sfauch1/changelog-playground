@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "pull:request": "git reset $(git merge-base main $(git rev-parse --abbrev-ref HEAD)) && git add . & cz",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "version": "git fetch --all --tags && conventional-changelog --preset conventionalcommits --infile CHANGELOG.md --same-file && git add CHANGELOG.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
